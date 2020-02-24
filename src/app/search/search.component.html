@@ -1,1 +1,27 @@
-<p>search works!</p>
+<form class="form" role="form" [formGroup]="searchForm">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Search for a Gif</mat-label>
+      <input matInput id="searchField" formControlName="param" placeholder="Ex. ryan gosling">
+    </mat-form-field>
+  </form>
+  
+  
+  <mat-grid-list cols="3" gutterSize="25px" rowHeight="300px">
+  
+    <mat-grid-tile *ngFor='let recipe of recipes' class="cardHolder">
+        <mat-grid-tile-header>
+          <mat-card-title>{{recipe.title}}</mat-card-title>
+        </mat-grid-tile-header>
+          <img src="{{recipe.images.fixed_height.url}}" alt="{{recipe.title}}">
+        <mat-grid-tile-footer>
+          <button mat-icon-button
+          matTooltip="Add to favorites"
+          (click)=openSnackBar()
+          (click)=addFavorite(gif)
+          color="primary">
+            <mat-icon>favorite</mat-icon>
+          </button>
+        </mat-grid-tile-footer>
+      
+    </mat-grid-tile>
+  </mat-grid-list>
