@@ -1,12 +1,12 @@
-<form class="form" role="form" [formGroup]="searchForm">
+<form class="form" role="form">
     <mat-form-field appearance="fill" class="full-width" color="accent">
       <mat-label>Search for a recipe</mat-label>
-      <input matInput id="search" #input formControlName="param" placeholder="Ex. soup">
+      <input matInput id="search" #input placeholder="Ex. soup">
     </mat-form-field>
     <mat-form-field appearance="fill" class="full-width" color="accent">
         <mat-label>Search by Category</mat-label>
-        <mat-select>
-            <mat-option id="category" *ngFor="let category of categories" [(value)]="category.strCategory" [value]="category.strCategory">{{category.strCategory}}</mat-option>
+        <mat-select name="category" [(ngModel)]="value" (ngModelChange)="byCategory()">
+            <mat-option id="category" *ngFor="let category of categories" [value]="category.strCategory">{{category.strCategory}}</mat-option>
         </mat-select>
       </mat-form-field>
   </form>

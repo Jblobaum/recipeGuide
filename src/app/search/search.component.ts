@@ -19,6 +19,7 @@ export class SearchComponent implements OnInit {
   recipes: Array<Object>;
   categories: Array<string> = []
   value: string = ""
+  
 
   constructor(
     private formBuilder: FormBuilder,
@@ -32,6 +33,12 @@ export class SearchComponent implements OnInit {
     this._snackBar.open(this.message, "", {duration: 2000});
   };
 
+  byCategory(){
+    console.log(this.value);
+    
+    this.recipeCategoryService.recipeByCategory(this.value).subscribe(results => this.recipes = results['meals'])
+  }
+
 
 
   ngOnInit(): void {
@@ -44,13 +51,10 @@ export class SearchComponent implements OnInit {
     );
     keyUp.subscribe(val => this.recipeNameService.recipeByName(val).subscribe(results => this.recipes = results['meals']))
 
-    this.recipeCategoryService.recipeByCategory(this.value).subscribe(results => this.recipes = results['meals'])
+   
   
     this.getCategoriesService.getCategories().subscribe(results => this.categories = results['meals'])
 
-  this.searchForm = this.formBuilder.group({
-    param: ['', Validators.compose([Validators.required, Validators.minLength(2)])]
-  })
 }
 
 }
