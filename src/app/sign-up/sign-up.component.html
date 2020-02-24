@@ -8,12 +8,12 @@
             <form class="form" role="form" [formGroup]="loginForm">
                 <mat-form-field hintLabel="Must be between 3 and 16 characters" appearance="fill" class="full-width">
                     <mat-label>Username</mat-label>
-                    <input matInput #input maxlength="12" formControlName="user" placeholder="Username">
+                    <input matInput [(ngModel)]="username" #input maxlength="12" formControlName="user" placeholder="Username">
                     <mat-hint align="end">{{input.value?.length || 0}}/16</mat-hint>
                 </mat-form-field>
                 <mat-form-field hintLabel="Must be between 8 and 128 characters" appearance="fill" class="full-width">
                     <mat-label>Password</mat-label>
-                    <input matInput type="password" formControlName="pass" placeholder="Password">
+                    <input matInput [(ngModel)]="passoword" type="password" formControlName="pass" placeholder="Password">
                 </mat-form-field>
                 <mat-form-field appearance="fill" class="full-width">
                     <input matInput formControlName="confirmPassword" type="password"
@@ -22,7 +22,7 @@
                     <mat-error class="form-error" *ngIf="loginForm.hasError('mismatch')">
                         Passwords must match.</mat-error>
                 </mat-form-field>
-                <button mat-raised-button [color]="loginForm.valid && loginForm.dirty ? 'primary' : 'warn'">Submit</button>
+                <button mat-raised-button (click)="signUp()" [color]="loginForm.valid && loginForm.dirty ? 'primary' : 'warn'">Submit</button>
             </form>
         </mat-card-content>
     </mat-card>
