@@ -18,7 +18,7 @@ export class SearchComponent implements OnInit {
   message: string = "Added to Favorites"
   recipes: Array<Object>;
   categories: Array<string> = []
-  selected: string = ""
+  value: string = ""
 
   constructor(
     private formBuilder: FormBuilder,
@@ -44,7 +44,7 @@ export class SearchComponent implements OnInit {
     );
     keyUp.subscribe(val => this.recipeNameService.recipeByName(val).subscribe(results => this.recipes = results['meals']))
 
-    this.recipeCategoryService.recipeByCategory(this.selected).subscribe(results => this.recipes = results['meals'])
+    this.recipeCategoryService.recipeByCategory(this.value).subscribe(results => this.recipes = results['meals'])
   
     this.getCategoriesService.getCategories().subscribe(results => this.categories = results['meals'])
 
