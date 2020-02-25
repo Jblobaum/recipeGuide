@@ -12,11 +12,11 @@
 
 .center{
     text-align: center;
-    padding-bottom: 10px;
 }
 
 .alignTop{
     vertical-align: top;
+    padding-top: 10px;
 }
 
 .container{
@@ -30,4 +30,8 @@ tbody{
     display: table-row-group;
     vertical-align: middle;
     
+}
+
+.largeFont{
+    font-size: 34px;
 }

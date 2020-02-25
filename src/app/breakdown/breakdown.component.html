@@ -1,12 +1,14 @@
 <a mat-button routerLink="/cocktail">Find Another Drink</a>
 <a mat-button routerLink="/entree">Find Another Meal</a>
+<br>
+<br>
 <div class="container">
     <div class="center">
         <table class="fullWidth">
             <tbody>
                 <tr>
-                    <td class="left">{{drink['strDrink']}}</td>
-                    <td class="right">Ingredients</td>
+                    <td class="left largeFont">{{drink['strDrink']}}</td>
+                    <td class="right largeFont">Ingredients</td>
                 </tr>
                 <tr>
                     <td class="left alignTop">
@@ -14,27 +16,22 @@
                             alt="{{drink['strDrink']}}">
                     </td>
                     <td class="right alignTop">
-                        <table class="fullWidth">
-                            <tr>
-                                <td align="center" *ngFor='let ingredient of drink | '>
-                                    <figure>
-                                        <img style="width: 80%;" src="https://www.thecocktaildb.com/images/ingredients/INGREDIENT-Medium.png" alt="">
-                                        <figcaption>MEASURE + ingredient name</figcaption>
-                                    </figure>
-                                </td>
-                            </tr>
-
-                        </table>
+                        <mat-grid-list cols="3" gutterSize="10px" rowHeight="200px" class="fullWidth">
+                            <mat-grid-tile *ngFor='let ingredient of ingredients'>
+                                <img style="width: 80%;" src="https://www.thecocktaildb.com/images/ingredients/{{ingredient.ingredient}}-Medium.png" alt="">
+                                    <mat-grid-tile-footer>{{ingredient.measurement}} of {{ingredient.ingredient}}</mat-grid-tile-footer>
+                            </mat-grid-tile>
+                        </mat-grid-list>
                     </td>
                 </tr>
             </tbody>
         </table>
         <br>
-        <h2>Instructions</h2>
+        <h2 class="largeFont">Instructions</h2>
         <p>{{drink['strInstructions']}}</p>
         <br>
         <br>
-        <h2>Glass</h2>
+        <h2 class="largeFont">Glass</h2>
         <p>{{drink['strGlass']}}</p>
 
 

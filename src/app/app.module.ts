@@ -18,6 +18,7 @@ import { reducers } from './store';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,8 @@ import { reducers } from './store';
     UserComponent,
     SearchComponent,
     CocktailComponent,
-    BreakdownComponent
+    BreakdownComponent,
+    
   ],
   imports: [
     BrowserModule,
