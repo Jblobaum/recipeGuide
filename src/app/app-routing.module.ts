@@ -5,10 +5,12 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { UserComponent } from './user/user.component';
 import { CocktailComponent } from './cocktail/cocktail.component';
 import { SearchComponent } from './search/search.component';
+import { BreakdownComponent } from './breakdown/breakdown.component';
 
 
 const routes: Routes = [
   {path: 'login', component: LogInComponent},
+  {path: 'breakdown', component: BreakdownComponent},
   {path: 'signup', component: SignUpComponent},
   {path: 'user', component: UserComponent},
   {path: 'entree', component: SearchComponent},

@@ -12,6 +12,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http';
 import { CocktailComponent } from './cocktail/cocktail.component';
+import { BreakdownComponent } from './breakdown/breakdown.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './store';
 
 
 @NgModule({
@@ -21,7 +24,8 @@ import { CocktailComponent } from './cocktail/cocktail.component';
     SignUpComponent,
     UserComponent,
     SearchComponent,
-    CocktailComponent
+    CocktailComponent,
+    BreakdownComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +35,7 @@ import { CocktailComponent } from './cocktail/cocktail.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    StoreModule.forRoot(reducers)
     
   ],
   providers: [],
