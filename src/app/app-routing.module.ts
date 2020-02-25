@@ -3,7 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { LogInComponent } from './log-in/log-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { UserComponent } from './user/user.component';
-import { SearchComponent } from './cocktail/cocktail.component';
+import { CocktailComponent } from './cocktail/cocktail.component';
+import { SearchComponent } from './search/search.component';
 
 
 const routes: Routes = [

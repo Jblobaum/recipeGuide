@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { fromEvent } from 'rxjs';
 import { map, debounceTime, distinctUntilChanged } from 'rxjs/operators';
@@ -9,12 +8,11 @@ import { DrinkCategoryService } from '../services/drink-category.service';
 
 
 @Component({
-  selector: 'app-search',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss']
+  selector: 'app-cocktail',
+  templateUrl: './cocktail.component.html',
+  styleUrls: ['./cocktail.component.scss']
 })
-export class SearchComponent implements OnInit {
-  searchForm: FormGroup;
+export class CocktailComponent implements OnInit {
   message: string = "Added to Favorites"
   recipes: Array<Object>;
   categories: Array<string> = []
@@ -22,7 +20,6 @@ export class SearchComponent implements OnInit {
   
 
   constructor(
-    private formBuilder: FormBuilder,
     private _snackBar: MatSnackBar,
     private drinkNameService: DrinkNameService,
     private getDrinkCategoryService: GetDrinkCategoryService,
