@@ -1,1 +1,43 @@
-<p>breakdown works!</p>
+<a mat-button routerLink="/cocktail">Find Another Drink</a>
+<a mat-button routerLink="/entree">Find Another Meal</a>
+<div class="container">
+    <div class="center">
+        <table class="fullWidth">
+            <tbody>
+                <tr>
+                    <td class="left">{{drink['strDrink']}}</td>
+                    <td class="right">Ingredients</td>
+                </tr>
+                <tr>
+                    <td class="left alignTop">
+                        <img class="fullWidth" src="{{drink['strDrinkThumb']}}"
+                            alt="{{drink['strDrink']}}">
+                    </td>
+                    <td class="right alignTop">
+                        <table class="fullWidth">
+                            <tr>
+                                <td align="center" *ngFor='let ingredient of drink | '>
+                                    <figure>
+                                        <img style="width: 80%;" src="https://www.thecocktaildb.com/images/ingredients/INGREDIENT-Medium.png" alt="">
+                                        <figcaption>MEASURE + ingredient name</figcaption>
+                                    </figure>
+                                </td>
+                            </tr>
+
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <h2>Instructions</h2>
+        <p>{{drink['strInstructions']}}</p>
+        <br>
+        <br>
+        <h2>Glass</h2>
+        <p>{{drink['strGlass']}}</p>
+
+
+
+    </div>
+</div>

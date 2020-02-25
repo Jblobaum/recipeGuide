@@ -17,6 +17,7 @@ import { StoreModule } from '@ngrx/store';
 import { reducers } from './store';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +37,7 @@ import { reducers } from './store';
     HttpClientModule,
     ReactiveFormsModule,
     StoreModule.forRoot(reducers)
+ 
     
   ],
   providers: [],

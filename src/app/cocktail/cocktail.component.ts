@@ -8,6 +8,7 @@ import { DrinkCategoryService } from '../services/drink-category.service';
 import * as recipeActions from '../store/actions/recipeAction'
 import { Store, select } from '@ngrx/store';
 import { RootState } from '../store';
+import { DrinkByIdService } from '../services/drink-by-id.service';
 
 
 @Component({
@@ -22,13 +23,16 @@ export class CocktailComponent implements OnInit {
   value: string = ""
   recipeToBreakdown$: Observable<Object>;
   recipeBreakdown: Object;
+  drink: Object;
+  
 
   constructor(
     private _snackBar: MatSnackBar,
     private drinkNameService: DrinkNameService,
     private getDrinkCategoryService: GetDrinkCategoryService,
     private drinkCategoryService: DrinkCategoryService,
-    private store: Store<RootState>
+    private store: Store<RootState>,
+    private drinkByIDService: DrinkByIdService
   ){
     this.recipeToBreakdown$ = store.pipe(select('recipe'))
   }
@@ -40,13 +44,16 @@ export class CocktailComponent implements OnInit {
   byCategory(){
     console.log(this.value);
     this.drinkCategoryService.drinkByCategory(this.value).subscribe(results => this.recipes = results['drinks'])
-  }
-
-  lookCloser(recipeToAdd: Object){
-    this.store.dispatch(recipeActions.breakdown({recipe: recipeToAdd}))
-    console.log(this.recipeBreakdown);
     
   }
+
+  // lookCloser(recipeToAdd: Object){
+  //   console.log(recipeToAdd);
+  //   this.drinkByIDService.drinksById(recipeToAdd['idDrink']).subscribe(results => this.drink = results['drinks'])
+  //   this.store.dispatch(recipeActions.breakdown({recipe: this.drink}))
+  //   console.log(this.recipeBreakdown);
+    
+  // }
 
 
 
@@ -61,7 +68,7 @@ export class CocktailComponent implements OnInit {
     keyUp.subscribe(val => this.drinkNameService.drinkByName(val).subscribe(results => this.recipes = results['drinks']))
 
     this.getDrinkCategoryService.getDrinkCategory().subscribe(results => this.categories = results['drinks'])
-    
+
     this.recipeToBreakdown$.subscribe(val=> this.recipeBreakdown = val);
 }
 

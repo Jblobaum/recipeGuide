@@ -1,0 +1,33 @@
+.fullWidth{
+    width: 100%;
+}
+
+.left{
+    width: 35%;
+}
+
+.right{
+    width: 60%
+}
+
+.center{
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.alignTop{
+    vertical-align: top;
+}
+
+.container{
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+tbody{
+    display: table-row-group;
+    vertical-align: middle;
+    
+}

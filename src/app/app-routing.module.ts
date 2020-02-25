@@ -10,7 +10,7 @@ import { BreakdownComponent } from './breakdown/breakdown.component';
 
 const routes: Routes = [
   {path: 'login', component: LogInComponent},
-  {path: 'breakdown', component: BreakdownComponent},
+  {path: 'breakdown/:id', component: BreakdownComponent},
   {path: 'signup', component: SignUpComponent},
   {path: 'user', component: UserComponent},
   {path: 'entree', component: SearchComponent},
