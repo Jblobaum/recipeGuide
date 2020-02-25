@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+
 
 
 @Component({
@@ -8,8 +8,8 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
   styleUrls: ['./log-in.component.scss']
 })
 export class LogInComponent implements OnInit {
-  loginForm: FormGroup;
-  constructor(private formBuilder: FormBuilder) { }
+  
+  constructor() { }
 
 
 
@@ -17,9 +17,6 @@ export class LogInComponent implements OnInit {
 
 
   ngOnInit() {
-    this.loginForm = this.formBuilder.group({
-      user: ['', Validators.compose([Validators.required, Validators.maxLength(16), Validators.minLength(3)])],
-      pass: ['', Validators.compose([Validators.required, Validators.maxLength(128), Validators.minLength(8)])]
-    })
+  
   }
 }
