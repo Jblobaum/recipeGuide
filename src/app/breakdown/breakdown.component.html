@@ -1,0 +1,47 @@
+<div class="flex">
+<div class="paddingL">
+<a mat-raised-button class="padding" color="accent" routerLink="/cocktail">Find Another Drink</a>
+</div>
+<div class="paddingR">
+<a mat-raised-button color="accent" routerLink="/entree">Find Another Meal</a>
+</div>
+</div>
+
+<br>
+<br>
+<div class="container">
+    <div class="center">
+        <table class="fullWidth">
+            <tbody>
+                <tr>
+                    <td class="left largeFont">{{drink['strDrink']}}</td>
+                    <td class="right largeFont">Ingredients</td>
+                </tr>
+                <tr>
+                    <td class="left alignTop">
+                        <img class="fullWidth" src="{{drink['strDrinkThumb']}}"
+                            alt="{{drink['strDrink']}}">
+                    </td>
+                    <td  class="right alignTop">
+                        <mat-grid-list  cols="3" gutterSize="10px" rowHeight="200px" class="fullWidth">
+                            <mat-grid-tile  *ngFor='let ingredient of ingredients'>
+                                <img style="width: 80%;" src="https://www.thecocktaildb.com/images/ingredients/{{ingredient.ingredient}}-Medium.png" alt="">
+                                    <mat-grid-tile-footer >{{ingredient.measurement}} of {{ingredient.ingredient}}</mat-grid-tile-footer>
+                            </mat-grid-tile>
+                        </mat-grid-list>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <h2 class="largeFont">Instructions</h2>
+        <p>{{drink['strInstructions']}}</p>
+        <br>
+        <br>
+        <h2 class="largeFont">Glass</h2>
+        <p>{{drink['strGlass']}}</p>
+
+
+
+    </div>
+</div>

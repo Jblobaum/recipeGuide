@@ -13,6 +13,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http';
 import { CocktailComponent } from './cocktail/cocktail.component';
 import { MealBreakdownComponent } from './meal-breakdown/meal-breakdown.component';
+import { BreakdownComponent } from './breakdown/breakdown.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './store';
+
+
 
 
 @NgModule({
@@ -23,7 +28,9 @@ import { MealBreakdownComponent } from './meal-breakdown/meal-breakdown.componen
     UserComponent,
     SearchComponent,
     CocktailComponent,
-    MealBreakdownComponent
+    MealBreakdownComponent,
+    BreakdownComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -33,6 +40,8 @@ import { MealBreakdownComponent } from './meal-breakdown/meal-breakdown.componen
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    StoreModule.forRoot(reducers)
+ 
     
   ],
   providers: [],
