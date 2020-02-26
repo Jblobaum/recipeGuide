@@ -16,6 +16,7 @@ import { MealBreakdownComponent } from './meal-breakdown/meal-breakdown.componen
 import { BreakdownComponent } from './breakdown/breakdown.component';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './store';
+import { IngredientBreakdownComponent } from './ingredient-breakdown/ingredient-breakdown.component';
 
 
 
@@ -30,6 +31,7 @@ import { reducers } from './store';
     CocktailComponent,
     MealBreakdownComponent,
     BreakdownComponent,
+    IngredientBreakdownComponent,
     
   ],
   imports: [

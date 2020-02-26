@@ -25,9 +25,7 @@ export class MealBreakdownComponent implements OnInit {
       Object.keys(results['meals'][0]).map(item => {
         if(item.match("strIngredient") && this.meal[item] != ""){
          measurements =  item.split("strIngredient")
-          console.log(measurements);
           let key = `strMeasure${measurements[1]}`
-          console.log(this.meal[key]);
           
        this.ingredients.push({ingredient: this.meal[item], measurement: this.meal[key]})
 
@@ -35,8 +33,6 @@ export class MealBreakdownComponent implements OnInit {
        
        
       })
-      
-      console.log(this.ingredients);
       
     });
   }

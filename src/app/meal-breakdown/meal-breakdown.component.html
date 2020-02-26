@@ -1,42 +1,45 @@
- <div class="flex">
+<div class="flex">
     <div class="paddingL">
-    <a mat-raised-button class="padding" color="accent" routerLink="/cocktail">Find Another Drink</a>
+        <a mat-raised-button class="padding" color="accent" routerLink="/cocktail">Find Another Drink</a>
     </div>
     <div class="paddingR">
-    <a mat-raised-button color="accent" routerLink="/meal">Find Another Meal</a>
+        <a mat-raised-button color="accent" routerLink="/meal">Find Another Meal</a>
     </div>
-    </div>
-    
+</div>
+
+<br>
+<br>
+<div class="container">
+    <table class="fullWidth">
+        <tbody>
+            <tr>
+                <td class="left largeFont">{{meal['strMeal']}}</td>
+                <td class="right largeFont">Ingredients</td>
+            </tr>
+            <tr>
+                <td class="left alignTop">
+                    <img class="fullWidth" src="{{meal['strMealThumb']}}" alt="{{meal['strMeal']}}">
+                </td>
+                <td class="right alignTop">
+                    <mat-grid-list cols="3" gutterSize="10px" rowHeight="200px" class="fullWidth">
+                        <mat-grid-tile *ngFor='let ingredient of ingredients'>
+                            <a mat-button routerLink='/ingredientbreakdown/{{ingredient.ingredient}}'>
+                                <img style="width: 80%;"
+                                    src="https://www.themealdb.com/images/ingredients/{{ingredient.ingredient}}.png"
+                                    alt="">
+                                <mat-grid-tile-footer>{{ingredient.measurement}} of {{ingredient.ingredient}}
+                                </mat-grid-tile-footer>
+                            </a>
+                        </mat-grid-tile>
+                    </mat-grid-list>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <br>
+    <h2 class="largeFont">YouTube Video</h2>
+    <a mat-button target="_blank" href="{{meal['strYoutube']}}">{{meal['strYoutube']}}</a>
     <br>
-    <div class="container">
-        <div class="center">
-            <table class="fullWidth">
-                <tbody>
-                    <tr>
-                        <td class="left largeFont">{{meal['strMeal']}}</td>
-                        <td class="right largeFont">Ingredients</td>
-                    </tr>
-                    <tr>
-                        <td class="left alignTop">
-                            <img class="fullWidth" src="{{meal['strMealThumb']}}"
-                                alt="{{meal['strMeal']}}">
-                        </td>
-                        <td  class="right alignTop">
-                            <mat-grid-list  cols="3" gutterSize="10px" rowHeight="200px" class="fullWidth">
-                                <mat-grid-tile  *ngFor='let ingredient of ingredients'>
-                                    <img style="width: 80%;" src="https://www.themealdb.com/images/ingredients/{{ingredient.ingredient}}.png" alt="">
-                                        <mat-grid-tile-footer >{{ingredient.measurement}} of {{ingredient.ingredient}}</mat-grid-tile-footer>
-                                </mat-grid-tile>
-                            </mat-grid-list>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <br>
-            <h2 class="largeFont">YouTube Video</h2>
-            <a mat-button target="_blank" href="{{meal['strYoutube']}}">{{meal['strYoutube']}}</a>
-            <br>
-            <h2 class="largeFont">Instructions</h2>
-            <p>{{meal['strInstructions']}}</p>
-            
+    <h2 class="largeFont">Instructions</h2>
+    <p>{{meal['strInstructions']}}</p>
+</div>

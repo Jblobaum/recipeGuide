@@ -8,6 +8,7 @@ import { MealBreakdownComponent } from './meal-breakdown/meal-breakdown.componen
 import { SearchComponent } from './search/search.component';
 import { BreakdownComponent } from './breakdown/breakdown.component';
 import { UserGuard } from './guards/user.guard';
+import { IngredientBreakdownComponent } from './ingredient-breakdown/ingredient-breakdown.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path: 'user/:username', component: UserComponent, canActivate: [UserGuard]},
   {path: 'cocktail', component: CocktailComponent, canActivate: [UserGuard]},
   {path: 'meal', component: SearchComponent, canActivate: [UserGuard]},
+  {path: 'ingredientbreakdown/:ingredient', component: IngredientBreakdownComponent, canActivate: [UserGuard]},
   {path: 'mealbreakdown/:id', component: MealBreakdownComponent, canActivate: [UserGuard]},
   {path: '**', component:LogInComponent}
 ];
