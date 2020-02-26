@@ -7,16 +7,17 @@ import { CocktailComponent } from './cocktail/cocktail.component';
 import { MealBreakdownComponent } from './meal-breakdown/meal-breakdown.component';
 import { SearchComponent } from './search/search.component';
 import { BreakdownComponent } from './breakdown/breakdown.component';
+import { UserGuard } from './guards/user.guard';
 
 
 const routes: Routes = [
   {path: 'login', component: LogInComponent},
-  {path: 'breakdown/:id', component: BreakdownComponent},
+  {path: 'breakdown/:id', component: BreakdownComponent, canActivate: [UserGuard]},
   {path: 'signup', component: SignUpComponent},
-  {path: 'user/:username', component: UserComponent},
-  {path: 'cocktail', component: CocktailComponent},
-  {path: 'meal', component: SearchComponent},
-  {path: 'mealbreakdown/:id', component: MealBreakdownComponent},
+  {path: 'user/:username', component: UserComponent, canActivate: [UserGuard]},
+  {path: 'cocktail', component: CocktailComponent, canActivate: [UserGuard]},
+  {path: 'meal', component: SearchComponent, canActivate: [UserGuard]},
+  {path: 'mealbreakdown/:id', component: MealBreakdownComponent, canActivate: [UserGuard]},
   {path: '**', component:LogInComponent}
 ];
 
