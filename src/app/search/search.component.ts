@@ -21,7 +21,6 @@ export class SearchComponent implements OnInit {
   
 
   constructor(
-    private formBuilder: FormBuilder,
     private _snackBar: MatSnackBar,
     private recipeNameService: RecipeNameService,
     private getCategoriesService: GetCategoriesService,

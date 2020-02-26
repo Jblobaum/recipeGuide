@@ -11,6 +11,7 @@ import { MaterialModule } from './materialModule';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http';
+import { MealBreakdownComponent } from './meal-breakdown/meal-breakdown.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     LogInComponent,
     SignUpComponent,
     UserComponent,
-    SearchComponent
+    SearchComponent,
+    MealBreakdownComponent
   ],
   imports: [
     BrowserModule,
