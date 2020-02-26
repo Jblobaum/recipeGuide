@@ -5,7 +5,7 @@ import { map, debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { DrinkNameService } from '../services/drink-name.service';
 import { GetDrinkCategoryService } from '../services/get-drink-category.service';
 import { DrinkCategoryService } from '../services/drink-category.service';
-import * as recipeActions from '../store/actions/recipeAction'
+
 import { Store, select } from '@ngrx/store';
 import { RootState } from '../store';
 import { DrinkByIdService } from '../services/drink-by-id.service';
@@ -31,10 +31,8 @@ export class CocktailComponent implements OnInit {
     private drinkNameService: DrinkNameService,
     private getDrinkCategoryService: GetDrinkCategoryService,
     private drinkCategoryService: DrinkCategoryService,
-    private store: Store<RootState>,
-    private drinkByIDService: DrinkByIdService
   ){
-    this.recipeToBreakdown$ = store.pipe(select('recipe'))
+    
   }
 
   openSnackBar(){
@@ -46,15 +44,6 @@ export class CocktailComponent implements OnInit {
     this.drinkCategoryService.drinkByCategory(this.value).subscribe(results => this.recipes = results['drinks'])
     
   }
-
-  // lookCloser(recipeToAdd: Object){
-  //   console.log(recipeToAdd);
-  //   this.drinkByIDService.drinksById(recipeToAdd['idDrink']).subscribe(results => this.drink = results['drinks'])
-  //   this.store.dispatch(recipeActions.breakdown({recipe: this.drink}))
-  //   console.log(this.recipeBreakdown);
-    
-  // }
-
 
 
   ngOnInit(): void {
