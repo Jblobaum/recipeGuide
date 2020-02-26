@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { fromEvent, Observable } from 'rxjs';
-import { map, debounceTime, distinctUntilChanged } from 'rxjs/operators';
-import { DrinkNameService } from '../services/drink-name.service';
+import { Observable } from 'rxjs';
 import { GetDrinkCategoryService } from '../services/get-drink-category.service';
 import { DrinkCategoryService } from '../services/drink-category.service';
+import { RootState } from '../store';
+import { Store, select } from '@ngrx/store';
+import * as DrinkActions from '../store/actions/drinkAction'
 
 
 
@@ -18,18 +19,19 @@ export class CocktailComponent implements OnInit {
   recipes: Array<Object>;
   categories: Array<string> = []
   value: string = ""
-  recipeToBreakdown$: Observable<Object>;
+  
   recipeBreakdown: Object;
   drink: Object;
+  favDrinks$: Observable<Object>
   
 
   constructor(
     private _snackBar: MatSnackBar,
-    private drinkNameService: DrinkNameService,
     private getDrinkCategoryService: GetDrinkCategoryService,
     private drinkCategoryService: DrinkCategoryService,
+    private store: Store<RootState>
   ){
-    
+    this.favDrinks$ = store.pipe(select('drink'))
   }
 
   openSnackBar(){
@@ -40,6 +42,10 @@ export class CocktailComponent implements OnInit {
     console.log(this.value);
     this.drinkCategoryService.drinkByCategory(this.value).subscribe(results => this.recipes = results['drinks'])
     
+  }
+
+  addFavDrink(drinkToAdd){
+    this.store.dispatch(DrinkActions.add(drinkToAdd))
   }
 
 

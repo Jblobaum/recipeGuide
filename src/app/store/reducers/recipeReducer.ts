@@ -10,7 +10,7 @@ export const initialState: RecipeState = {
 }
 const recipeReducer = createReducer(
     initialState,
-    on(recipeActions.breakdown, (state, {recipe})=> ({...state, recipe: recipe})),
+    on(recipeActions.add, (state, {recipe})=> ({...state, recipe: recipe})),
     on(recipeActions.clear, (state)=> ({...initialState}))
     
 )

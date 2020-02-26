@@ -3,6 +3,10 @@ import { FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { GetCategoriesService } from '../services/get-categories.service';
 import { RecipeCategoryService } from '../services/recipe-category.service';
+import { Store, select } from '@ngrx/store';
+import { RootState } from '../store';
+import * as RecipeActions from '../store/actions/recipeAction'
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-search',
@@ -14,12 +18,23 @@ export class SearchComponent implements OnInit {
   recipes: Array<Object>;
   categories: Array<Object>;
   value: string;
+  favRecipes$: Observable<Object>;
 
   constructor(
     private _snackBar: MatSnackBar,
     private getCategoriesService: GetCategoriesService,
-    private recipeCategoryService: RecipeCategoryService
-  ) { }
+    private recipeCategoryService: RecipeCategoryService,
+    private store: Store<RootState>
+  ) {
+    this.favRecipes$ = store.pipe(select('recipe'))
+  }
+
+  addFavMeal(recipeToAdd){
+    this.store.dispatch(RecipeActions.add(recipeToAdd))
+    console.log(this.favRecipes$);
+    
+  }
+  
 
   openSnackBar() {
     this._snackBar.open(this.message, "", { duration: 2000 });

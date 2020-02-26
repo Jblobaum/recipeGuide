@@ -1,1 +1,32 @@
-<h1>{{user$ | async}}</h1>
+<h1>Welcome, {{user$ | async}}</h1>
+
+
+<h1>Your Favorite Recipes</h1>
+<button color="accent" mat-raised-button (click)=clearFavMeals()>Clear Recipes</button>
+<mat-grid-list cols="3" gutterSize="25px" rowHeight="300px">
+  
+    <mat-grid-tile *ngFor='let recipe of (favRecipes$ | async)' class="cardHolder">
+        <mat-grid-tile-header>
+          <mat-card-title>
+           <a mat-button routerLink='/mealbreakdown/{{recipe.idMeal}}'>{{recipe.strMeal}}</a>
+          </mat-card-title>
+        </mat-grid-tile-header>
+          <img src="{{recipe.strMealThumb}}/preview" alt="{{recipe.strMeal}}">
+    </mat-grid-tile>
+    
+  </mat-grid-list>
+  <br>
+  <h1>Your Favorite Cocktails</h1>
+  <button color="accent" mat-raised-button (click)=clearFavDrinks()>Clear Cocktails</button>
+<mat-grid-list cols="3" gutterSize="25px" rowHeight="300px">
+  
+    <mat-grid-tile *ngFor='let recipe of (favDrinks$ | async)' class="cardHolder">
+        <mat-grid-tile-header>
+          <mat-card-title>
+           <a mat-button routerLink='/mealbreakdown/{{recipe.idMeal}}'>{{recipe.strMeal}}</a>
+          </mat-card-title>
+        </mat-grid-tile-header>
+          <img src="{{recipe.strMealThumb}}/preview" alt="{{recipe.strMeal}}">
+    </mat-grid-tile>
+    
+  </mat-grid-list>
