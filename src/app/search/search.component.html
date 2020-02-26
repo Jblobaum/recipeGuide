@@ -1,8 +1,8 @@
-<form class="form" role="form">
-    <mat-form-field appearance="fill" class="full-width" color="accent">
-      <mat-label>Search for a recipe</mat-label>
-      <input matInput id="search" #input placeholder="Ex. soup">
-    </mat-form-field>
+<div class="container">
+<h1>Pick a Category to Find New Recipes</h1>
+</div>
+<div class="container">
+<form>
     <mat-form-field appearance="fill" class="full-width" color="accent">
         <mat-label>Search by Category</mat-label>
         <mat-select name="category" [(ngModel)]="value" (ngModelChange)="byCategory()">
@@ -10,6 +10,8 @@
         </mat-select>
       </mat-form-field>
   </form>
+  </div>
+
   
   
   <mat-grid-list cols="3" gutterSize="25px" rowHeight="300px">
