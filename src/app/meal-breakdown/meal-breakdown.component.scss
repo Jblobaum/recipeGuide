@@ -1,0 +1,51 @@
+.fullWidth{
+    width: 100%;
+}
+
+.left{
+    width: 35%;
+}
+
+.right{
+    width: 60%
+}
+
+.center{
+    text-align: center !important;
+}
+
+.alignTop{
+    vertical-align: top;
+    padding-top: 10px;
+}
+
+.container{
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+tbody{
+    display: table-row-group;
+    vertical-align: middle;
+    
+}
+
+.largeFont{
+    font-size: 34px;
+}
+
+.paddingL{
+    padding-right: 7.5px;
+    padding-left: 15px;
+}
+
+.paddingR{
+    padding-right: 15px;
+    padding-left: 7.5px;
+}
+
+.flex{
+    display: flex;
+}

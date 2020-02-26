@@ -1,1 +1,36 @@
 
+<div class="container">
+<h1>Pick a Category to Find New Recipes</h1>
+</div>
+<div class="container">
+<form>
+    <mat-form-field appearance="fill" class="full-width" color="accent">
+        <mat-label>Search by Category</mat-label>
+        <mat-select name="category" [(ngModel)]="value" (ngModelChange)="byCategory()">
+            <mat-option id="category" *ngFor="let category of categories" [value]="category.strCategory">{{category.strCategory}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+  </form>
+  </div>
+
+  
+  
+  <mat-grid-list cols="3" gutterSize="25px" rowHeight="300px">
+  
+    <mat-grid-tile *ngFor='let recipe of recipes' class="cardHolder">
+        <mat-grid-tile-header>
+          <mat-card-title>
+           <a mat-button routerLink='/mealbreakdown/{{recipe.idMeal}}'>{{recipe.strMeal}}</a>
+          </mat-card-title>
+        </mat-grid-tile-header>
+          <img src="{{recipe.strMealThumb}}/preview" alt="{{recipe.strMeal}}">
+        <mat-grid-tile-footer>
+          <button mat-icon-button
+          (click)=openSnackBar()
+          color="accent">
+            <mat-icon>favorite</mat-icon>
+          </button>
+        </mat-grid-tile-footer>
+    </mat-grid-tile>
+    
+  </mat-grid-list>
