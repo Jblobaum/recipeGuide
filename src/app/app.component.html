@@ -1,12 +1,12 @@
 <mat-toolbar role="heading" class="white"  color="primary">
   <mat-toolbar-row class="biggerText">The Complete Guide to Recipes and Cocktails</mat-toolbar-row>
   <mat-toolbar-row class="light-background">
-  <a  mat-button  routerLink="/login">Login</a>
-  <a  mat-button  routerLink="/signup" >Sign Up</a>
-  <a  mat-button *ngIf="!isLoginRoute || !isSignupRoute"  routerLink="/user/{{user$ | async}}">My Recipes</a>
-  <a  mat-button  routerLink="/meal">Search For Food</a>
-  <a  mat-button  routerLink="/cocktail">Search For a Cocktail</a>
-  <a  mat-button (click)="logOut()">Log Out</a>
+  <a  mat-button *ngIfNot="(user$ | async)" routerLink="/login">Login</a>
+  <a  mat-button *ngIfNot="(user$ | async)" routerLink="/signup" >Sign Up</a>
+  <a  mat-button *ngIf="(user$ | async)"  routerLink="/user/{{user$ | async}}">My Recipes</a>
+  <a  mat-button *ngIf="(user$ | async)" routerLink="/meal">Search For Food</a>
+  <a  mat-button *ngIf="(user$ | async)" routerLink="/cocktail">Search For a Cocktail</a>
+  <a  mat-button *ngIf="(user$ | async)" (click)="logOut()">Log Out</a>
 
   </mat-toolbar-row>
   </mat-toolbar>

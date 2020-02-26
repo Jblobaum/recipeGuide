@@ -49,15 +49,8 @@ export class AppComponent {
 constructor(
   private userService: UserService,
   private store: Store<RootState>,
-  private actr: ActivatedRoute
   ){this.user$ = store.pipe(select(Selectors.getUserState))
   this.user$.subscribe(val=> console.log(val));
-  console.log(this.actr.snapshot);
-  console.log(this.actr);
-  
-  
-  // this.isLoginRoute = this.actr.url[0].path === ""
-  // this.isSignupRoute = this.actr.url[0].path === 'signup'
   }
 
 prepareRoute(outlet: RouterOutlet) {
