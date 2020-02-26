@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http';
 import { CocktailComponent } from './cocktail/cocktail.component';
+import { MealsComponent } from './meals/meals.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { CocktailComponent } from './cocktail/cocktail.component';
     SignUpComponent,
     UserComponent,
     SearchComponent,
-    CocktailComponent
+    CocktailComponent,
+    MealsComponent
   ],
   imports: [
     BrowserModule,
