@@ -16,12 +16,7 @@ constructor(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean{
       if(this.userService.isLoggedIn){
-        if(next.url[0].path === 'cocktail'){
-          return true;
-        }
-        else{
-          return next.params.username === this.userService.currentUser
-        }
+        return true
       }
       else{
         this.router.navigate(['./login'])

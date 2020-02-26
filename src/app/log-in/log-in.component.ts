@@ -31,8 +31,6 @@ export class LogInComponent implements OnInit {
    logIn(usernameToAdd){
      console.log(this.username);
      console.log(this.password);
-     
-     
      this.userService.logIn(this.username, this.password);
      this.store.dispatch(userActions.setUser(usernameToAdd))
    }

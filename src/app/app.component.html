@@ -11,7 +11,9 @@
   </mat-toolbar-row>
   </mat-toolbar>
   <main>
-  <router-outlet  style="margin-top: 80px;"></router-outlet>
+    <div [@routeAnimations]="prepareRoute(outlet)">
+      <router-outlet style="margin-top: 80px;" #outlet="outlet"></router-outlet>
+  </div>
   </main>
 
 

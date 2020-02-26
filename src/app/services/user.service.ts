@@ -21,14 +21,13 @@ export class UserService {
   }
 
   logIn(username: string, password: string) {
-    if (username == localStorage.getItem(username) && password == localStorage.getItem(password)) {
+    if (username == localStorage.getItem('username') && password == localStorage.getItem('password')) {
       this.isLoggedIn = true;
       this.router.navigate([`/user/${username}`])
       }
       else{
         console.log("fail");
-        console.log(localStorage.getItem(username));
-        console.log(localStorage.getItem(password));
+        
         
         
       }
