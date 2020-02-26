@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { RootState } from './store';
 import * as Selectors from '../app/store/selectors'
+import * as Actions from '../app/store/actions'
 
 export const routeAnimations  =
 trigger('routeAnimations', [
@@ -60,6 +61,7 @@ prepareRoute(outlet: RouterOutlet) {
 
 logOut(){
   this.userService.logOut()
+  this.store.dispatch(Actions.clearUser())
 }
 
 }
