@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
-import { passwordMatchValidator } from '../validators/confirmPassword';
 import { Store, select } from '@ngrx/store';
-import { Observable } from 'rxjs';
 import { RootState } from '../store';
 import { UserService } from '../services/user.service';
-import * as userActions from '../store/actions/userAction'
+import * as Actions from '../store/actions'
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -14,7 +13,6 @@ import * as userActions from '../store/actions/userAction'
   styleUrls: ['./log-in.component.scss']
 })
 export class LogInComponent implements OnInit {
-  user$: Observable<Object>;
   loginForm: FormGroup;
   username: string = "";
   password: string = "";
@@ -23,16 +21,18 @@ export class LogInComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private store: Store<RootState>,
-    private userService: UserService
+    private userService: UserService,
+    private actr: ActivatedRoute
   ) {
-    this.user$ = store.pipe(select('user'))
+    console.log(this.actr.snapshot.routeConfig.path);
+    
    }
 
    logIn(usernameToAdd){
      console.log(this.username);
      console.log(this.password);
      this.userService.logIn(this.username, this.password);
-     this.store.dispatch(userActions.setUser(usernameToAdd))
+     this.store.dispatch(Actions.setUser({username: usernameToAdd}))
    }
 
 

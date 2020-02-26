@@ -5,16 +5,16 @@ export interface UserState {
     username: string
 }
 
-export const initialState: UserState = {
+export const initialUserState: UserState = {
     username: ''
 }
 
 const userReducer = createReducer(
-    initialState,
+    initialUserState,
     on(userActions.setUser, (state, {username})=> ({...state, username: username})),
-    on(userActions.clearUser, (state)=> ({...initialState}))
+    on(userActions.clearUser, (state)=> ({...initialUserState}))
 )
 
-export function reducer(state: UserState, action: Action){
+export function setUserstate(state: UserState, action: Action){
     return userReducer(state, action)
 }

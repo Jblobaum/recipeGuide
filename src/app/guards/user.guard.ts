@@ -15,7 +15,7 @@ constructor(
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean{
-      if(this.userService.isLoggedIn){
+      if(this.userService.isLoggedIn == true){
         return true
       }
       else{

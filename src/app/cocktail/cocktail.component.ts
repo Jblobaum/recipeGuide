@@ -5,7 +5,7 @@ import { GetDrinkCategoryService } from '../services/get-drink-category.service'
 import { DrinkCategoryService } from '../services/drink-category.service';
 import { RootState } from '../store';
 import { Store, select } from '@ngrx/store';
-import * as DrinkActions from '../store/actions/drinkAction'
+import * as Actions from '../store/actions'
 
 
 
@@ -22,7 +22,7 @@ export class CocktailComponent implements OnInit {
   
   recipeBreakdown: Object;
   drink: Object;
-  favDrinks$: Observable<Object>
+  
   
 
   constructor(
@@ -31,7 +31,7 @@ export class CocktailComponent implements OnInit {
     private drinkCategoryService: DrinkCategoryService,
     private store: Store<RootState>
   ){
-    this.favDrinks$ = store.pipe(select('drink'))
+    
   }
 
   openSnackBar(){
@@ -45,7 +45,7 @@ export class CocktailComponent implements OnInit {
   }
 
   addFavDrink(drinkToAdd){
-    this.store.dispatch(DrinkActions.add(drinkToAdd))
+    this.store.dispatch(Actions.addDrink({drink: drinkToAdd}))
   }
 
 

@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
 import { UserService } from './services/user.service';
 import { trigger, transition, style, query, animateChild, animate, group } from '@angular/animations';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Store, select } from '@ngrx/store';
+import { RootState } from './store';
+import * as Selectors from '../app/store/selectors'
 
 export const routeAnimations  =
 trigger('routeAnimations', [
@@ -38,9 +42,23 @@ trigger('routeAnimations', [
 })
 export class AppComponent {
   title = 'recipeGuide';
+  user$: Observable<Object>
+  isLoginRoute: boolean;
+  isSignupRoute: boolean;
 
-
-constructor(private userService: UserService){}
+constructor(
+  private userService: UserService,
+  private store: Store<RootState>,
+  private actr: ActivatedRoute
+  ){this.user$ = store.pipe(select(Selectors.getUserState))
+  this.user$.subscribe(val=> console.log(val));
+  console.log(this.actr.snapshot);
+  console.log(this.actr);
+  
+  
+  // this.isLoginRoute = this.actr.url[0].path === ""
+  // this.isSignupRoute = this.actr.url[0].path === 'signup'
+  }
 
 prepareRoute(outlet: RouterOutlet) {
   return outlet && outlet.activatedRouteData && 

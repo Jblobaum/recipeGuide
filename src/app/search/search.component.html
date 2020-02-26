@@ -26,8 +26,8 @@
           <img src="{{recipe.strMealThumb}}/preview" alt="{{recipe.strMeal}}">
         <mat-grid-tile-footer>
           <button mat-icon-button
-          (click)=openSnackBar()
-          (click)=addFavMeal(recipe)
+          (click)="openSnackBar()"
+          (click)="addFavMeal(recipe)"
           color="accent">
             <mat-icon>favorite</mat-icon>
           </button>

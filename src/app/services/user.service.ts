@@ -27,9 +27,6 @@ export class UserService {
       }
       else{
         console.log("fail");
-        
-        
-        
       }
   }
 

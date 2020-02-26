@@ -5,19 +5,19 @@ import { createReducer, Action, on } from '@ngrx/store'
 
 
 export interface drinkState {
-    drink: Object
+    drinks: Array<Object>
 }
 
-export const initialState: drinkState = {
-    drink: []
+export const initialDrinkState: drinkState = {
+    drinks: []
 }
 
 const drinkReducer = createReducer(
-    initialState,
-    on(drinkActions.add, (state, {drink})=> ({...state, drink: drink})),
-    on(drinkActions.clear, (state)=> ({...initialState}))
+    initialDrinkState,
+    on(drinkActions.addDrink, (state, {drink})=> ({...state, drinks:[...state.drinks, drink]})),
+    on(drinkActions.clearDrink, (state)=> ({...initialDrinkState}))
 )
 
-export function reducer(state: drinkState, action: Action){
+export function setDrinkState(state: drinkState, action: Action){
     return drinkReducer(state, action)
 }
