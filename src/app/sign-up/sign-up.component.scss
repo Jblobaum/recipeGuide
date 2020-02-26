@@ -5,16 +5,35 @@
   .full-width {
       width: 100%;
     }
-  
+.largeFont{
+      font-size: 48px;
+    }
+.green{
+      color: #3cca00;
+    }
+button{
+      margin-top: 10px;
+    }
 
   .main-div{
     height: 80vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
   }
 
   .center{
     width: 50%;
     margin: 10px auto;
   }
+  .container{
+    padding-top: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
