@@ -11,7 +11,7 @@
 }
 
 .center{
-    text-align: center;
+    text-align: center !important;
 }
 
 .alignTop{
@@ -34,4 +34,18 @@ tbody{
 
 .largeFont{
     font-size: 34px;
+}
+
+.paddingL{
+    padding-right: 7.5px;
+    padding-left: 15px;
+}
+
+.paddingR{
+    padding-right: 15px;
+    padding-left: 7.5px;
+}
+
+.flex{
+    display: flex;
 }
