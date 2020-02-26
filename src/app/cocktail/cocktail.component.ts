@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
 import { GetDrinkCategoryService } from '../services/get-drink-category.service';
 import { DrinkCategoryService } from '../services/drink-category.service';
@@ -35,7 +35,10 @@ export class CocktailComponent implements OnInit {
   }
 
   openSnackBar(){
-    this._snackBar.open(this.message, "", {duration: 2000});
+    let config = new MatSnackBarConfig()
+    config.panelClass = ['snack-bar-style']
+    config.duration = 30000
+    this._snackBar.open(this.message, null, config);
   };
 
   byCategory(){

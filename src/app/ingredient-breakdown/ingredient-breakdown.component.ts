@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { RootState } from '../store';
 import * as Actions from '../store/actions'
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-ingredient-breakdown',
@@ -35,7 +35,10 @@ export class IngredientBreakdownComponent implements OnInit {
 
 
   openSnackBar() {
-    this._snackBar.open(this.message, "", { duration: 2000 });
+    let config = new MatSnackBarConfig()
+    config.panelClass = ['snack-bar-style']
+    config.duration = 30000
+    this._snackBar.open(this.message, null, config);
   };
 
   ngOnInit(): void {

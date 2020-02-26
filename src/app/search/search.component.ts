@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { GetCategoriesService } from '../services/get-categories.service';
 import { RecipeCategoryService } from '../services/recipe-category.service';
 import { Store, select } from '@ngrx/store';
@@ -34,7 +34,10 @@ export class SearchComponent implements OnInit {
   
 
   openSnackBar() {
-    this._snackBar.open(this.message, "", { duration: 2000 });
+    let config = new MatSnackBarConfig()
+    config.panelClass = ['snack-bar-style']
+    config.duration = 30000
+    this._snackBar.open(this.message, null, config);
   };
 
   byCategory() {

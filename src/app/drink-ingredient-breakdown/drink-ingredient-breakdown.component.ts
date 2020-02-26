@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { Store } from '@ngrx/store';
 import { RootState } from '../store';
 import { DrinkByIngredientService } from '../services/drink-by-ingredient.service';
@@ -33,7 +33,10 @@ export class DrinkIngredientBreakdownComponent implements OnInit {
 
 
   openSnackBar() {
-    this._snackBar.open(this.message, "", { duration: 2000 });
+    let config = new MatSnackBarConfig()
+    config.panelClass = ['snack-bar-style']
+    config.duration = 30000
+    this._snackBar.open(this.message, null, config);
   };
 
   ngOnInit(): void {
