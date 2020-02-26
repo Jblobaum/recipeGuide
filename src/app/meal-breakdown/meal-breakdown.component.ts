@@ -18,12 +18,12 @@ export class MealBreakdownComponent implements OnInit {
 
   ngOnInit(): void {
     this.recipeById.recipeById(this.actr.snapshot.params.id).subscribe(results => {
-      this.meal = results['drinks'][0]
+      this.meal = results['meals'][0]
       this.ingredients = []
       let measurements = []
     
-      Object.keys(results['drinks'][0]).map(item => {
-        if(item.match("strIngredient") && this.meal[item] != null){
+      Object.keys(results['meals'][0]).map(item => {
+        if(item.match("strIngredient") && this.meal[item] != ""){
          measurements =  item.split("strIngredient")
           console.log(measurements);
           let key = `strMeasure${measurements[1]}`
