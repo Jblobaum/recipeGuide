@@ -12,7 +12,7 @@ const routes: Routes = [
   {path: 'login', component: LogInComponent},
   {path: 'signup', component: SignUpComponent},
   {path: 'user', component: UserComponent},
-  {path: 'cocktail', component: CocktailComponent}
+  {path: 'cocktail', component: CocktailComponent},
   {path: 'meal', component: SearchComponent},
   {path: 'mealbreakdown/:id', component: MealBreakdownComponent},
   {path: '**', component:LogInComponent}
