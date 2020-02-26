@@ -8,14 +8,28 @@ export class UserService {
   isLoggedIn: boolean = false;
   constructor(private router: Router) { }
 
-  signUp(username: string, password: string){
+  signUp(username: string, password: string) {
     localStorage.setItem("username", username)
     localStorage.setItem("password", password)
     this.isLoggedIn = true;
     this.router.navigate([`/user/${username}`])
   }
 
-  logOut(){
+  logIn(username: string, password: string) {
+    if (username == localStorage.getItem(username) && password == localStorage.getItem(password)) {
+      this.isLoggedIn = true;
+      this.router.navigate([`/user/${username}`])
+      }
+      else{
+        console.log("fail");
+        console.log(localStorage.getItem(username));
+        console.log(localStorage.getItem(password));
+        
+        
+      }
+  }
+
+  logOut() {
     this.isLoggedIn = false;
     this.router.navigate(['/login'])
   }

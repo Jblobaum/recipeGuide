@@ -22,7 +22,7 @@
                     <mat-error class="form-error" *ngIf="loginForm.hasError('mismatch')">
                         Passwords must match.</mat-error>
                 </mat-form-field>
-                <button mat-raised-button (click)="signUp()" [color]="loginForm.valid && loginForm.dirty ? 'primary' : 'warn'">Submit</button>
+                <button mat-raised-button (click)="signUp()" (click)="addUser(username)" [color]="loginForm.valid && loginForm.dirty ? 'primary' : 'warn'">Submit</button>
             </form>
         </mat-card-content>
     </mat-card>

@@ -6,9 +6,6 @@ import { DrinkNameService } from '../services/drink-name.service';
 import { GetDrinkCategoryService } from '../services/get-drink-category.service';
 import { DrinkCategoryService } from '../services/drink-category.service';
 
-import { Store, select } from '@ngrx/store';
-import { RootState } from '../store';
-import { DrinkByIdService } from '../services/drink-by-id.service';
 
 
 @Component({
@@ -47,18 +44,10 @@ export class CocktailComponent implements OnInit {
 
 
   ngOnInit(): void {
-    const searchField = document.getElementById('search');
-    const keyUp = fromEvent(searchField, 'keyup')
-    .pipe(
-      map(e=> e.target["value"]),
-      debounceTime(400),
-      distinctUntilChanged()
-    );
-    keyUp.subscribe(val => this.drinkNameService.drinkByName(val).subscribe(results => this.recipes = results['drinks']))
 
     this.getDrinkCategoryService.getDrinkCategory().subscribe(results => this.categories = results['drinks'])
 
-    this.recipeToBreakdown$.subscribe(val=> this.recipeBreakdown = val);
+    
 }
 
 }
