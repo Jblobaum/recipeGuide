@@ -16,7 +16,9 @@
   
     <mat-grid-tile *ngFor='let recipe of recipes' class="cardHolder">
         <mat-grid-tile-header>
-          <mat-card-title>{{recipe.strMeal}}</mat-card-title>
+          <mat-card-title>
+           <a mat-button routerLink='/mealbreakdown/{{recipe.idMeal}}'>{{recipe.strMeal}}</a>
+          </mat-card-title>
         </mat-grid-tile-header>
           <img src="{{recipe.strMealThumb}}/preview" alt="{{recipe.strMeal}}">
         <mat-grid-tile-footer>

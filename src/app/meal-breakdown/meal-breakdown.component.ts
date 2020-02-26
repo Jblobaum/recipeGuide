@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { RecipeByIdService } from '../services/recipe-by-id.service';
 
 @Component({
   selector: 'app-meal-breakdown',
@@ -7,28 +8,28 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./meal-breakdown.component.scss']
 })
 export class MealBreakdownComponent implements OnInit {
-  drink: Object;
+  meal: Object;
   ingredients: Array<Object>;
 
   constructor(
-    private drinkByIDService: DrinkByIdService,
+    private recipeById: RecipeByIdService,
     private actr: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    this.drinkByIDService.drinksById(this.actr.snapshot.params.id).subscribe(results => {
-      this.drink = results['drinks'][0]
+    this.recipeById.recipeById(this.actr.snapshot.params.id).subscribe(results => {
+      this.meal = results['drinks'][0]
       this.ingredients = []
       let measurements = []
     
       Object.keys(results['drinks'][0]).map(item => {
-        if(item.match("strIngredient") && this.drink[item] != null){
+        if(item.match("strIngredient") && this.meal[item] != null){
          measurements =  item.split("strIngredient")
           console.log(measurements);
           let key = `strMeasure${measurements[1]}`
-          console.log(this.drink[key]);
+          console.log(this.meal[key]);
           
-       this.ingredients.push({ingredient: this.drink[item], measurement: this.drink[key]})
+       this.ingredients.push({ingredient: this.meal[item], measurement: this.meal[key]})
 
       }
        
@@ -41,4 +42,4 @@ export class MealBreakdownComponent implements OnInit {
   }
     
 
-
+}
