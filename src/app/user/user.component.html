@@ -3,7 +3,7 @@
 
 
 <h1>Your Favorite Recipes</h1>
-<button *ngIf='!isEmptyRecipes' color="accent" mat-raised-button (click)=clearFavMeals()>Clear Recipes</button>
+<button color="accent" mat-raised-button (click)=clearFavMeals()>Clear Recipes</button>
 <mat-grid-list cols="4" gutterSize="25px" rowHeight="300px">
   
     <mat-grid-tile *ngFor='let recipe of recipes' class="cardHolder">
@@ -18,7 +18,7 @@
   </mat-grid-list>
   <br>
   <h1>Your Favorite Cocktails</h1>
-  <button *ngIf='isEmptyDrinks' color="accent" mat-raised-button (click)=clearFavDrinks()>Clear Cocktails</button>
+  <button color="accent" mat-raised-button (click)=clearFavDrinks()>Clear Cocktails</button>
 <mat-grid-list class="paddingT" cols="4" gutterSize="25px" rowHeight="300px">
   
     <mat-grid-tile *ngFor='let drink of drinks' class="cardHolder">

@@ -4,7 +4,6 @@ import { Store, select } from '@ngrx/store';
 import { RootState } from '../store';
 import * as Actions from '../store/actions'
 import * as Selectors from '../store/selectors'
-import {  UserService } from '../services/user.service'
 
 
 @Component({

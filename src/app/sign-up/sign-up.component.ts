@@ -23,7 +23,7 @@ export class SignUpComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserService,
-    private store: Store<RootState>
+    private store: Store<RootState>,
     ) {
       this.matcher = new CrossFieldMatcher()
       this.user$ = store.pipe(select('user'))
