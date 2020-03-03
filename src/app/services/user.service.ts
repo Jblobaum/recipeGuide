@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { tap } from 'rxjs/operators'
 
 
 @Injectable({
@@ -18,19 +19,15 @@ export class UserService {
   }
 
   signUp(username: string, password: string) {
-    this.http.post('/signup', {username: username, password: password})
-    this.isLoggedIn = true;
-    this.router.navigate([`/user/${username}`])
+    return this.http.post('/api/users/signup', {username: username, password: password})
+    
   }
 
   logIn(username: string, password: string) {
-    if (username == localStorage.getItem('username') && password == localStorage.getItem('password')) {
-      this.isLoggedIn = true;
-      this.router.navigate([`/user/${username}`])
-      }
-      else{
-        console.log("fail");
-      }
+    return this.http.post('api/users/login', {username: username, password: password}).pipe(
+      tap(res=> this.isLoggedIn = res["success"])
+    )
+    
   }
 
   logOut() {

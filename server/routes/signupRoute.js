@@ -1,18 +1,22 @@
 const express = require('express');
 const router = express.Router();
-const bcrypt = require('bcrypt');
-const saltRounds = 10 
-let users = []
-// let hash = bcrypt.hashSync(req.body.password, saltRounds)
+const userModel = require('../models/userModel')
 
 
-router.get('/:userId', (req, res, next)=>{
-    let id = parseInt(req.params.userId)
-    let y = posts.filter(x => x.userId === id)
-    
-    res.send({data: y, success: true})
-    
-});
 
+router.post('/signup', (req, res, next) => {
+    if (req.body.username === undefined || req.body.password === undefined) {
+        return res.send({ success: false, msg: "Incorrect data provided." })
+    }
+    userModel.addNewUser(res, req.body)
+
+})
+
+router.post("/login", (req, res) => {
+    if (req.body.username === undefined || req.body.password === undefined) {
+        return res.send({ success: false, msg: "Incorrect data provided." })
+    }
+    userModel.login(res, req.body)
+})
 
 module.exports = router

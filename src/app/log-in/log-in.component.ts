@@ -4,7 +4,7 @@ import { Store, select } from '@ngrx/store';
 import { RootState } from '../store';
 import { UserService } from '../services/user.service';
 import * as Actions from '../store/actions'
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -22,7 +22,8 @@ export class LogInComponent implements OnInit {
     private formBuilder: FormBuilder,
     private store: Store<RootState>,
     private userService: UserService,
-    private actr: ActivatedRoute
+    private actr: ActivatedRoute,
+    private router: Router
   ) {
     console.log(this.actr.snapshot.routeConfig.path);
     
@@ -31,7 +32,14 @@ export class LogInComponent implements OnInit {
    logIn(usernameToAdd){
      console.log(this.username);
      console.log(this.password);
-     this.userService.logIn(this.username, this.password);
+     this.userService.logIn(this.username, this.password).subscribe(
+       res=>{
+         if(res["success"]){
+           localStorage.setItem("user", res["username"])
+           this.router.navigate([`user/${res["username"]}`])
+         }
+       }
+     );
      this.store.dispatch(Actions.setUser({username: usernameToAdd}))
    }
 

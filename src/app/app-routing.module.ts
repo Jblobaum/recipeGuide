@@ -12,14 +12,14 @@ import { IngredientBreakdownComponent } from './ingredient-breakdown/ingredient-
 
 
 const routes: Routes = [
-  {path: 'login', component: LogInComponent},
-  {path: 'breakdown/:id', component: BreakdownComponent, canActivate: [UserGuard]},
-  {path: 'signup', component: SignUpComponent},
-  {path: 'user/:username', component: UserComponent, canActivate: [UserGuard]},
-  {path: 'cocktail', component: CocktailComponent, canActivate: [UserGuard]},
-  {path: 'meal', component: SearchComponent, canActivate: [UserGuard]},
-  {path: 'ingredientbreakdown/:ingredient', component: IngredientBreakdownComponent, canActivate: [UserGuard]},
-  {path: 'mealbreakdown/:id', component: MealBreakdownComponent, canActivate: [UserGuard]},
+  {path: 'login', component: LogInComponent, data: {animation: 'login'}},
+  {path: 'breakdown/:id', component: BreakdownComponent, canActivate: [UserGuard], data: {animation: 'breakdown'}},
+  {path: 'signup', component: SignUpComponent, data: {animation: 'signup'}},
+  {path: 'user/:username', component: UserComponent, canActivate: [UserGuard], data: {animation: 'user'}},
+  {path: 'cocktail', component: CocktailComponent, canActivate: [UserGuard], data: {animation: 'cocktail'}},
+  {path: 'meal', component: SearchComponent, canActivate: [UserGuard], data: {animation: 'meal'}},
+  {path: 'ingredientbreakdown/:ingredient', component: IngredientBreakdownComponent, canActivate: [UserGuard], data: {animation: 'ingredientbreakdown'}},
+  {path: 'mealbreakdown/:id', component: MealBreakdownComponent, canActivate: [UserGuard], data: {animation: 'breakdown'}},
   {path: '**', component:LogInComponent}
 ];
 
