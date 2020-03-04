@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { RootState } from '../store';
 import * as userActions from '../store/actions/userAction'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -16,32 +17,40 @@ import * as userActions from '../store/actions/userAction'
 export class SignUpComponent implements OnInit {
   loginForm: FormGroup;
   matcher: CrossFieldMatcher;
-  username: string = "";
-  password: string = "";
   user$: Observable<Object>;
+  msg: string;
 
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserService,
     private store: Store<RootState>,
+    private router: Router
     ) {
       this.matcher = new CrossFieldMatcher()
       this.user$ = store.pipe(select('user'))
     }
 
-    signUp(){
+    signUp(e){
+      e.preventDefault();
       if(this.loginForm.valid){
-      this.userService.signUp(this.username, this.password)
+      this.userService.signUp(this.loginForm.value.user, this.loginForm.value.pass).subscribe(
+        res=>{
+          if(res["success"]){
+            this.router.navigate(["login"])
+            this.msg = res["msg"]
+            console.log(this.msg);
+            
+          }
+          this.msg = res["msg"]
+        }
+      )
       }
     }
 
-    clearUser(){
-      this.store.dispatch(userActions.clearUser())
-    }
-
-    addUser(usernameToAdd: string){
+    addUser(e){
+      e.preventDefault();
       if(this.loginForm.valid){
-      this.store.dispatch(userActions.setUser({username: usernameToAdd}))}
+      this.store.dispatch(userActions.setUser({username: this.loginForm.value.user}))}
     }
 
   ngOnInit(): void {

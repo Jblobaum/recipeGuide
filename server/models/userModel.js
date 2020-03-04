@@ -53,7 +53,7 @@ function login(res, user) {
             return res.send({ success: false, msg: "Invalid Username/Password" })
         }
 
-        bcrypt.compare(results.password, results.password, (err, matched) => {
+        bcrypt.compare(user.password, results[0].password, (err, matched) => {
             if (err) {
                 return res.send({ success: false, msg: "Something went wrong" })
             }
@@ -61,6 +61,7 @@ function login(res, user) {
                 return res.send({ success: false, msg: "Incorrect Username/Password" })
             }
             res.send({ success: true, msg: "Welcome Back!", username: results[0].username })
+            
         })
 
     })

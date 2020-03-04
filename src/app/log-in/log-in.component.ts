@@ -14,8 +14,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class LogInComponent implements OnInit {
   loginForm: FormGroup;
-  username: string = "";
-  password: string = "";
+  msg: string;
+
   
   
   constructor(
@@ -29,18 +29,22 @@ export class LogInComponent implements OnInit {
     
    }
 
-   logIn(usernameToAdd){
-     console.log(this.username);
-     console.log(this.password);
-     this.userService.logIn(this.username, this.password).subscribe(
+   logIn(e){
+    e.preventDefault();
+     this.userService.logIn(this.loginForm.value.user, this.loginForm.value.pass).subscribe(
        res=>{
          if(res["success"]){
-           localStorage.setItem("user", res["username"])
-           this.router.navigate([`user/${res["username"]}`])
+           console.log(res["msg"]);
+           
+           localStorage.setItem("user", res["username"]);
+           this.router.navigate([`user/${res["username"]}`]);
          }
+         this.msg = res["msg"];
+         console.log(res["msg"]);
+         
        }
      );
-     this.store.dispatch(Actions.setUser({username: usernameToAdd}))
+     this.store.dispatch(Actions.setUser({username: this.loginForm.value.user}));
    }
 
 

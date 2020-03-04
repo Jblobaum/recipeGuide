@@ -14,9 +14,9 @@ export class UserService {
     private http: HttpClient
     ) { }
 
-  get currentUser(){
-    return localStorage.getItem('username')
-  }
+  // get currentUser(){
+  //   return localStorage.getItem('username')
+  // }
 
   signUp(username: string, password: string) {
     return this.http.post('/api/users/signup', {username: username, password: password})
@@ -24,9 +24,11 @@ export class UserService {
   }
 
   logIn(username: string, password: string) {
+    
     return this.http.post('api/users/login', {username: username, password: password}).pipe(
       tap(res=> this.isLoggedIn = res["success"])
     )
+    
     
   }
 
