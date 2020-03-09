@@ -35,7 +35,7 @@ export class LogInComponent implements OnInit {
        res=>{
          if(res["success"]){
            console.log(res["msg"]);
-           
+           this.store.dispatch(Actions.setUser({username: this.loginForm.value.user}));
            localStorage.setItem("user", res["username"]);
            this.router.navigate([`user/${res["username"]}`]);
          }
@@ -44,7 +44,6 @@ export class LogInComponent implements OnInit {
          
        }
      );
-     this.store.dispatch(Actions.setUser({username: this.loginForm.value.user}));
    }
 
 

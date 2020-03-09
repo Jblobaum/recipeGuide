@@ -1,7 +1,7 @@
 <div class="container">
     <h1 class="largeFont">Hello there!</h1>
     <h1 class="green">Log in and get going! </h1>
-        </div>
+</div>
 
 
 <div class="main-div">
@@ -20,7 +20,10 @@
                     <mat-label>Password</mat-label>
                     <input matInput type="password" formControlName="pass" placeholder="Password">
                 </mat-form-field>
-                <button mat-raised-button (click)="logIn($event)" [color]="loginForm.valid && loginForm.dirty ? 'primary' : 'warn'">Log In</button>
+                <div class="foot warn">
+                    <button mat-raised-button (click)="logIn($event)"
+                        [color]="loginForm.valid && loginForm.dirty ? 'primary' : 'warn'">Log In</button>{{msg}}
+                </div>
             </form>
         </mat-card-content>
     </mat-card>
