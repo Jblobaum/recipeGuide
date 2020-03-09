@@ -18,20 +18,21 @@
   <mat-grid-list cols="3" gutterSize="25px" rowHeight="300px">
   
     <mat-grid-tile *ngFor='let recipe of recipes' class="cardHolder">
-        <mat-grid-tile-header>
+      <mat-card>
+        <mat-card-header>
           <mat-card-title>
            <a mat-button routerLink='/mealbreakdown/{{recipe.idMeal}}'>{{recipe.strMeal}}</a>
           </mat-card-title>
-        </mat-grid-tile-header>
-          <img src="{{recipe.strMealThumb}}/preview" alt="{{recipe.strMeal}}">
-        <mat-grid-tile-footer>
+        </mat-card-header>
+          <img class="center" src="{{recipe.strMealThumb}}/preview" alt="{{recipe.strMeal}}">
+        <mat-card-footer>
           <button mat-icon-button
           (click)="openSnackBar()"
           (click)="addFavMeal(recipe)"
           color="accent">
             <mat-icon>favorite</mat-icon>
           </button>
-        </mat-grid-tile-footer>
+        </mat-card-footer>
+      </mat-card>
     </mat-grid-tile>
-    
-  </mat-grid-list>
+ </mat-grid-list>  

@@ -1,6 +1,5 @@
 <div class="container">
-    <h1 class="largeFont">Welcome!</h1>
-    <h1 class="green">Sign up to start finding new recipes and cocktails</h1>
+    <h1 class="largeFont green">Sign up to start finding new recipes and cocktails</h1>
         </div>
 <div class="main-div">
     <mat-card class="center" flex="50">
@@ -21,11 +20,10 @@
                 <mat-form-field appearance="fill" class="full-width">
                     <input matInput formControlName="confirmPassword" type="password"
                         [errorStateMatcher]="matcher" placeholder="Confirm Password">
-                    <mat-hint>Passwords must match.</mat-hint>
-                    <mat-error class="form-error" *ngIf="loginForm.hasError('mismatch')">
+                    <mat-error class="form-error" *ngIf="loginForm.hasError('mismatch') && loginForm.dirty">
                         Passwords must match.</mat-error>
                 </mat-form-field>
-                <button mat-raised-button (click)="signUp($event)" (click)="addUser($event)" [color]="loginForm.valid && loginForm.dirty ? 'primary' : 'warn'">Sign Up</button>
+                <button mat-raised-button (click)="signUp($event)" (click)="addUser($event)" [color]="loginForm.valid ? 'primary' : 'warn'">Sign Up</button>
             </form>
         </mat-card-content>
     </mat-card>
