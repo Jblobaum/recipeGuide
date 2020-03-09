@@ -50,3 +50,10 @@ tbody{
 .flex{
     display: flex;
 }
+
+.recipeBg{
+    border: 2px solid rgba(85, 81, 81, 1) ;
+    border-radius: 5px ;
+    padding: 8px;
+    background-color: rgba(85, 81, 81, 0.7);
+}

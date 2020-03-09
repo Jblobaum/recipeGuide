@@ -5,7 +5,9 @@
     
 }
 
-.center{
+img.center{
     position: relative;
     left: calc(50% - 75px);
+    max-width: 150px;
 }
+

@@ -193,10 +193,7 @@ html, body { height: 100%; }
 body { margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
     color: $light-text;
-    background-image: url('./assets/kitchenBackground.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    
 }
 
  .light-background{
@@ -210,4 +207,12 @@ body { margin: 0;
 
 .mat-card{
   background-color: rgba(85, 81, 81, 0.5);
+}
+
+.background{
+  background-image: url('./assets/kitchenBackground.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: calc(100vh - 128px);
 }
