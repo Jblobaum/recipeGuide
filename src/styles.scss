@@ -192,15 +192,22 @@ $theme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
 html, body { height: 100%; }
 body { margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
-    background: $dark-background;
     color: $light-text;
- }
+    background-image: url('./assets/kitchenBackground.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
 
  .light-background{
-   background-color: $dark-bg-lighter-10;
+   background-color: $dark-bg-lighter-20;
  }
 
  .snack-bar-style{
   background-color: #d98400 !important;
   color: white !important;
+}
+
+.mat-card{
+  background-color: rgba(85, 81, 81, 0.5);
 }
