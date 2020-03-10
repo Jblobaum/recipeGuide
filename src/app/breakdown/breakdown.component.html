@@ -8,11 +8,11 @@
                     <td class="right largeFont">Ingredients</td>
                 </tr>
                 <tr>
-                    <td class="left alignTop">
+                    <td class="left alignTopL">
                         <img class="fullWidth" src="{{drink['strDrinkThumb']}}"
                             alt="{{drink['strDrink']}}">
                     </td>
-                    <td  class="right alignTop">
+                    <td  class="right alignTopR">
                         <mat-grid-list  cols="3" gutterSize="10px" rowHeight="200px" class="fullWidth">
                             <mat-grid-tile  *ngFor='let ingredient of ingredients'>
                                 <img style="width: 80%;" src="https://www.thecocktaildb.com/images/ingredients/{{ingredient.ingredient}}-Medium.png" alt="">

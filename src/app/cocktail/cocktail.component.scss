@@ -1,6 +1,4 @@
-.center{
-    align-items: center;
-}
+
 
 .container{
     width: 100%;
@@ -9,9 +7,8 @@
     
 }
 
-
-
-.mat-snack-bar-container{
-    background-color: #d98400 !important;
-    color: white !important;
+img.center{
+    position: relative;
+    left: calc(50% - 75px);
+    max-width: 150px;
 }
