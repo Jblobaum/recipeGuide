@@ -18,7 +18,7 @@ import { StoreModule } from '@ngrx/store';
 import { reducers } from './store';
 import { IngredientBreakdownComponent } from './ingredient-breakdown/ingredient-breakdown.component';
 import { DrinkIngredientBreakdownComponent } from './drink-ingredient-breakdown/drink-ingredient-breakdown.component';
-import { YouTubePlayerModule } from '@angular/youtube-player';
+
 
 
 
@@ -34,8 +34,7 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
     MealBreakdownComponent,
     BreakdownComponent,
     IngredientBreakdownComponent,
-    DrinkIngredientBreakdownComponent,
-    YouTubePlayerModule
+    DrinkIngredientBreakdownComponent
     
   ],
   imports: [
