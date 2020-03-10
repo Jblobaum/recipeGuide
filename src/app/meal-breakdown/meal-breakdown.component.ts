@@ -8,7 +8,7 @@ import { RecipeByIdService } from '../services/recipe-by-id.service';
   styleUrls: ['./meal-breakdown.component.scss']
 })
 export class MealBreakdownComponent implements OnInit {
-  meal: Object;
+  meal: Object = {strMeal: ""}
   ingredients: Array<Object>;
 
   constructor(
@@ -24,17 +24,17 @@ export class MealBreakdownComponent implements OnInit {
       let measurements = []
     
       Object.keys(results['meals'][0]).map(item => {
-        if(item.match("strIngredient") && this.meal[item] != ""){
+        if(item.match("strIngredient") && this.meal[item] != "" && this.meal[item] != null){
          measurements =  item.split("strIngredient")
           let key = `strMeasure${measurements[1]}`
           
        this.ingredients.push({ingredient: this.meal[item], measurement: this.meal[key]})
-
+          
+          
       }
        
        
       })
-      
     });
   }
     

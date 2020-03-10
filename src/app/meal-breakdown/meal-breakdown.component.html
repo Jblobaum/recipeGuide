@@ -1,9 +1,10 @@
 <div class="container">
     <div class="center">
-        <table class="fullWidth">
+        <table *ngIf="meal" class="fullWidth">
+            <mat-spinner *ngIf="!meal"></mat-spinner>
             <tbody>
-                <tr>
-                    <td class="left largeFont">{{meal['strMeal']}}</td>
+                <tr class="rowHeight">
+                    <td *ngIf="meal['strMeal']" class="left rowHeight largeFont">{{meal['strMeal']}}</td>
                     <td class="right largeFont">Ingredients</td>
                 </tr>
                 <tr>
@@ -27,8 +28,10 @@
             </tbody>
         </table>
         <br>
-        <h2 class="largeFont">YouTube Video</h2>
-        <a mat-button target="_blank" href="{{meal['strYoutube']}}">{{meal['strYoutube']}}</a>
+        <div *ngIf="meal['strYoutube'] != '' ">
+            <h2 class="largeFont">YouTube Video</h2>
+            <a mat-button target="_blank" href="{{meal['strYoutube']}}">{{meal['strYoutube']}}</a>
+        </div>
         <br>
         <br>
         <h2 class="largeFont">Instructions</h2>
