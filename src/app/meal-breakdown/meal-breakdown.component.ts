@@ -19,6 +19,7 @@ export class MealBreakdownComponent implements OnInit {
   ngOnInit(): void {
     this.recipeById.recipeById(this.actr.snapshot.params.id).subscribe(results => {
       this.meal = results['meals'][0]
+      console.log(this.meal);
       this.ingredients = []
       let measurements = []
     
