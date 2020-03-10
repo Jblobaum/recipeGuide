@@ -8,7 +8,7 @@ import { RecipeByIdService } from '../services/recipe-by-id.service';
   styleUrls: ['./meal-breakdown.component.scss']
 })
 export class MealBreakdownComponent implements OnInit {
-  meal: Object = {strMeal: ""}
+  meal: Object = {};
   ingredients: Array<Object>;
 
   constructor(

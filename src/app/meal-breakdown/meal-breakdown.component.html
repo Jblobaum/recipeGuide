@@ -1,10 +1,11 @@
 <div class="container">
-    <div class="center">
+    <mat-spinner *ngIf="meal === {}"></mat-spinner>
+    <div *ngIf="meal != {}"  class="center">
         <table *ngIf="meal" class="fullWidth">
-            <mat-spinner *ngIf="!meal"></mat-spinner>
+            
             <tbody>
                 <tr class="rowHeight">
-                    <td *ngIf="meal['strMeal']" class="left rowHeight largeFont">{{meal['strMeal']}}</td>
+                    <td class="left rowHeight largeFont">{{meal['strMeal']}}</td>
                     <td class="right largeFont">Ingredients</td>
                 </tr>
                 <tr>
