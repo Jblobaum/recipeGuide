@@ -18,6 +18,7 @@ import { StoreModule } from '@ngrx/store';
 import { reducers } from './store';
 import { IngredientBreakdownComponent } from './ingredient-breakdown/ingredient-breakdown.component';
 import { DrinkIngredientBreakdownComponent } from './drink-ingredient-breakdown/drink-ingredient-breakdown.component';
+import { SafePipe } from './pipes/safe.pipe';
 
 
 
@@ -34,7 +35,8 @@ import { DrinkIngredientBreakdownComponent } from './drink-ingredient-breakdown/
     MealBreakdownComponent,
     BreakdownComponent,
     IngredientBreakdownComponent,
-    DrinkIngredientBreakdownComponent
+    DrinkIngredientBreakdownComponent,
+    SafePipe
     
   ],
   imports: [

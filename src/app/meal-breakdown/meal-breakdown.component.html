@@ -30,8 +30,7 @@
         </table>
         <br>
         <div *ngIf="meal['strYoutube'] != '' ">
-            <h2 class="largeFont">YouTube Video</h2>
-            <a mat-button target="_blank" href="{{meal['strYoutube']}}">{{meal['strYoutube']}}</a>
+        <div [innerHTML]="yt | safe: 'html'" ></div>
         </div>
         <br>
         <br>
