@@ -28,7 +28,7 @@ export class MealBreakdownComponent implements OnInit {
       this.ingredients = []
       let measurements = []
       this.youtube = this.meal['strYoutube'].split('=')[1];
-      this.yt = `<iframe width="560" height="315" src='${this.youtube}' 
+      this.yt = `<iframe width="560" height="315" src='https://www.youtube.com/embed/${this.youtube}' 
   frameborder="0" allow="accelerometer; autoplay; encrypted-media; 
   gyroscope; picture-in-picture" allowfullscreen></iframe>`
 
