@@ -31,7 +31,15 @@ export class SearchComponent implements OnInit {
 
   addFavMeal(recipeToAdd){
     console.log(recipeToAdd);
-    this.mealService.addFavMeal(recipeToAdd['idMeal'], recipeToAdd['strMeal'], recipeToAdd['strMealThumb'])
+    this.mealService.addFavMeal(recipeToAdd['idMeal'], recipeToAdd['strMeal'], recipeToAdd['strMealThumb']).subscribe(
+      res=>{
+        if(res['succes']){
+          console.log(res['msg']);
+          
+        }
+        console.log(res['msg']);
+      }
+    )
     this.store.dispatch(Actions.addRecipe({recipe: recipeToAdd}))
     
   }
