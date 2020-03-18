@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
 const signupRoute = require('./server/routes/signupRoute');
+const favMealRoute = require('./server/routes/favMealRoute');
 const bodyParser = require('body-parser')
 const logger = require('./server/middlewares/loggingMiddleware')
 const pool = require('./server/configs/dbConfig')
@@ -19,6 +20,8 @@ app.use(express.static(__dirname + '/dist/recipeGuide'));
 
 
 app.use('/api/users', signupRoute);
+
+app.use('/api/favmeal', favMealRoute);
 
 
 
