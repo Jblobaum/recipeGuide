@@ -12,7 +12,7 @@ function mealByUser(res, userId) {
         });
 }
 
-function addFavMeal(res, mealId, meal, mealImg) {
+function addFavMeal(res, mealToAdd) {
     // pool.query(
     //     'SELECT * FROM favmeal JOIN user ON user.iduser = favmeal.userId WHERE favmeal.userId = ?', userId, (err, results) => {
     //         if (err) {
@@ -22,7 +22,11 @@ function addFavMeal(res, mealId, meal, mealImg) {
     //             return res.send({ success: false, msg: "Recipe already added" })
             // }
 
-            pool.query(`INSERT INTO favmeal SET ?`, { idMeal: mealId, meal: meal, mealImg: mealImg }, (err, results) => {
+            pool.query(`INSERT INTO favmeal SET ?`, { idMeal: mealToAdd.idMeal, meal: mealToAdd.meal, mealImg: mealToAdd.mealImg }, (err, results) => {
+                console.log(mealToAdd.idMeal);
+                console.log(mealToAdd.meal);
+                console.log(mealToAdd.mealImg);
+                
                 if (err) {
                     console.log('model failed');
                     
