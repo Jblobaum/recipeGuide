@@ -31,3 +31,7 @@ function addFavMeal(res, mealId, meal, mealImg) {
         }
     )
 }
+
+
+exports.mealByUser = mealByUser
+exports.addFavMeal = addFavMeal
