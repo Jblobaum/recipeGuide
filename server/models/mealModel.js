@@ -24,8 +24,12 @@ function addFavMeal(res, mealId, meal, mealImg) {
 
             pool.query(`INSERT INTO favmeal SET ?`, { idMeal: mealId, meal: meal, mealImg: mealImg }, (err, results) => {
                 if (err) {
+                    console.log('model failed');
+                    
                     return res.send({ success: false, err: err });
                 }
+                console.log('model success');
+                
                 return res.send({ success: true, msg: "Added to Favorites" })
             })
         }

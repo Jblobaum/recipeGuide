@@ -30,7 +30,7 @@ export class SearchComponent implements OnInit {
   }
 
   addFavMeal(recipeToAdd){
-    console.log(recipeToAdd);
+    console.log(recipeToAdd['idMeal']);
     this.mealService.addFavMeal(recipeToAdd['idMeal'], recipeToAdd['strMeal'], recipeToAdd['strMealThumb']).subscribe(
       res=>{
         if(res['succes']){
