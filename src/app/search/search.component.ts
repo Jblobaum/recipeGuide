@@ -28,6 +28,8 @@ export class SearchComponent implements OnInit {
   }
 
   addFavMeal(recipeToAdd){
+    console.log(recipeToAdd);
+    
     this.store.dispatch(Actions.addRecipe({recipe: recipeToAdd}))
     
   }
@@ -36,7 +38,7 @@ export class SearchComponent implements OnInit {
   openSnackBar() {
     let config = new MatSnackBarConfig()
     config.panelClass = ['snack-bar-style']
-    config.duration = 30000
+    config.duration = 3000
     this._snackBar.open(this.message, null, config);
   };
 
