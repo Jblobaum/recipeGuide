@@ -6,6 +6,7 @@ import { RecipeCategoryService } from '../services/recipe-category.service';
 import { Store, select } from '@ngrx/store';
 import { RootState } from '../store';
 import * as Actions from '../store/actions'
+import { MealService } from '../services/meal.service';
 
 @Component({
   selector: 'app-search',
@@ -22,14 +23,15 @@ export class SearchComponent implements OnInit {
     private _snackBar: MatSnackBar,
     private getCategoriesService: GetCategoriesService,
     private recipeCategoryService: RecipeCategoryService,
-    private store: Store<RootState>
+    private store: Store<RootState>,
+    private mealService: MealService
   ) {
     
   }
 
   addFavMeal(recipeToAdd){
     console.log(recipeToAdd);
-    
+    this.mealService.addFavMeal(recipeToAdd['idMeal'], recipeToAdd['strMeal'], recipeToAdd['strMealThumb'])
     this.store.dispatch(Actions.addRecipe({recipe: recipeToAdd}))
     
   }

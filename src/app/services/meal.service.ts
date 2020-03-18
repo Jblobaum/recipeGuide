@@ -13,7 +13,7 @@ export class MealService {
 
   ) { }
 
-  addFavMeal(uId, id, meal, img){
+  addFavMeal(id, meal, img){
     return this.http.post('/api/favmeal/addaFavMeal', { idMeal: id, meal: meal, mealImg: img })
   }
 
