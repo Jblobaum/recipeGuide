@@ -20,7 +20,7 @@ function addFavMeal(res, mealId, meal, mealImg) {
     //         }
     //         if (results.length > 0) {
     //             return res.send({ success: false, msg: "Recipe already added" })
-            }
+            // }
 
             pool.query(`INSERT INTO favmeal SET ?`, { idMeal: mealId, meal: meal, mealImg: mealImg }, (err, results) => {
                 if (err) {
@@ -29,8 +29,8 @@ function addFavMeal(res, mealId, meal, mealImg) {
                 return res.send({ success: true, msg: "Added to Favorites" })
             })
         }
-    )
-}
+    // )
+// }
 
 
 exports.mealByUser = mealByUser
