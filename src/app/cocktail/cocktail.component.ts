@@ -23,6 +23,7 @@ export class CocktailComponent implements OnInit {
   user$: Observable<Object>
   recipeBreakdown: Object;
   drink: Object;
+  breakpoint: number;
   
   
 
@@ -53,12 +54,15 @@ export class CocktailComponent implements OnInit {
     this.store.dispatch(Actions.addDrink({drink: drinkToAdd}))
   }
 
+  onResize(event) {
+    this.breakpoint = (event.target.innerWidth <= 650) ? 2 : 5;
+  }
 
   ngOnInit(): void {
 
     this.getDrinkCategoryService.getDrinkCategory().subscribe(results => this.categories = results['drinks'])
 
-    
+    this.breakpoint = (window.innerWidth <= 650) ? 2 : 5;
 }
 
 }

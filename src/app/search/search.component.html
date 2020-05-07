@@ -19,8 +19,7 @@
 
 
 <mat-grid-list [cols]="breakpoint" gutterSize="5px" rowHeight="250px" (window:resize)="onResize($event)">
-
-  <mat-grid-tile *ngFor='let recipe of recipes' class="cardHolder">
+  <mat-grid-tile *ngFor='let recipe of recipes'>
     <div class="parent" routerLink='/mealbreakdown/{{recipe.idMeal}}'>
       <div class="text">{{recipe.strMeal}}</div>
       <img class="center" src="{{recipe.strMealThumb}}/preview" alt="{{recipe.strMeal}}">
