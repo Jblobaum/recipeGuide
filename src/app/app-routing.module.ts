@@ -9,18 +9,20 @@ import { SearchComponent } from './search/search.component';
 import { BreakdownComponent } from './breakdown/breakdown.component';
 import { UserGuard } from './guards/user.guard';
 import { IngredientBreakdownComponent } from './ingredient-breakdown/ingredient-breakdown.component';
+import { HomeComponent } from './home/home.component';
 
 
 const routes: Routes = [
+  {path: 'home', component: HomeComponent, data: {animation: 'home'}},
   {path: 'login', component: LogInComponent, data: {animation: 'login'}},
-  {path: 'breakdown/:id', component: BreakdownComponent, canActivate: [UserGuard], data: {animation: 'breakdown'}},
+  {path: 'breakdown/:id', component: BreakdownComponent, data: {animation: 'breakdown'}},
   {path: 'signup', component: SignUpComponent, data: {animation: 'signup'}},
   {path: 'user/:username', component: UserComponent, canActivate: [UserGuard], data: {animation: 'user'}},
-  {path: 'cocktail', component: CocktailComponent, canActivate: [UserGuard], data: {animation: 'cocktail'}},
-  {path: 'meal', component: SearchComponent, canActivate: [UserGuard], data: {animation: 'meal'}},
-  {path: 'ingredientbreakdown/:ingredient', component: IngredientBreakdownComponent, canActivate: [UserGuard], data: {animation: 'ingredientbreakdown'}},
-  {path: 'mealbreakdown/:id', component: MealBreakdownComponent, canActivate: [UserGuard], data: {animation: 'breakdown'}},
-  {path: '**', component:LogInComponent}
+  {path: 'cocktail', component: CocktailComponent, data: {animation: 'cocktail'}},
+  {path: 'meal', component: SearchComponent, data: {animation: 'meal'}},
+  {path: 'ingredientbreakdown/:ingredient', component: IngredientBreakdownComponent, data: {animation: 'ingredientbreakdown'}},
+  {path: 'mealbreakdown/:id', component: MealBreakdownComponent, data: {animation: 'breakdown'}},
+  {path: '**', component: HomeComponent}
 ];
 
 @NgModule({

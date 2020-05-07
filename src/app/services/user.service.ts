@@ -33,6 +33,6 @@ export class UserService {
 
   logOut() {
     this.isLoggedIn = false;
-    this.router.navigate(['/login'])
+    this.router.navigate(['/home'])
   }
 }
