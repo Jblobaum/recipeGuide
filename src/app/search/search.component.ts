@@ -21,6 +21,7 @@ export class SearchComponent implements OnInit {
   categories: Array<Object>;
   value: string;
   user$: Observable<Object>
+  breakpoint: number;
 
   constructor(
     private _snackBar: MatSnackBar,
@@ -62,11 +63,16 @@ export class SearchComponent implements OnInit {
     this.recipeCategoryService.recipeByCategory(this.value).subscribe(results => this.recipes = results['meals'])
   }
 
+  onResize(event) {
+    this.breakpoint = (event.target.innerWidth <= 650) ? 2 : 5;
+  }
+
 
 
   ngOnInit(): void {
-    this.getCategoriesService.getCategories().subscribe(results => this.categories = results['meals'])
+    this.getCategoriesService.getCategories().subscribe(results => this.categories = results['meals']);
 
+    this.breakpoint = (window.innerWidth <= 650) ? 2 : 5;
   }
 
 }

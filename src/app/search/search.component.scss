@@ -6,8 +6,24 @@
 }
 
 img.center{
-    position: relative;
-    left: calc(50% - 75px);
+    // position: relative;
+    // left: calc(50% - 75px);
     max-width: 150px;
 }
 
+.parent{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    justify-content: center;
+    width: 150px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding-left: .75em;
+    padding-top: .75em;
+    padding-right: .75em;
+    padding-bottom: .75em;
+}
+
+.text{
+    text-align: center;
+}

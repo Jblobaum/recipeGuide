@@ -1,41 +1,35 @@
-
 <div class="container">
-<h1>Pick a Category to Find New Recipes</h1>
+  <h1>Pick a Category to Find New Recipes</h1>
 </div>
 <div *ngIf="!(user$ | async)" class="container">
   <h3>Sign up to save your favorites!</h3>
-  </div>
+</div>
 <div class="container">
   <form>
     <mat-form-field appearance="fill" class="full-width" color="accent">
-        <mat-label>Search by Category</mat-label>
-        <mat-select name="category" [(ngModel)]="value" (ngModelChange)="byCategory()">
-            <mat-option id="category" *ngFor="let category of categories" [value]="category.strCategory">{{category.strCategory}}</mat-option>
-        </mat-select>
-      </mat-form-field>
+      <mat-label>Search by Category</mat-label>
+      <mat-select name="category" [(ngModel)]="value" (ngModelChange)="byCategory()">
+        <mat-option id="category" *ngFor="let category of categories" [value]="category.strCategory">
+          {{category.strCategory}}</mat-option>
+      </mat-select>
+    </mat-form-field>
   </form>
 </div>
 
-  
-  
-  <mat-grid-list cols="4" gutterSize="15px" rowHeight="300px">
-  
-    <mat-grid-tile *ngFor='let recipe of recipes' class="cardHolder">
-      <mat-card>
-        <mat-card-header>
-          <mat-card-title>
-           <a mat-button routerLink='/mealbreakdown/{{recipe.idMeal}}'>{{recipe.strMeal}}</a>
-          </mat-card-title>
-        </mat-card-header>
-          <img class="center" src="{{recipe.strMealThumb}}/preview" alt="{{recipe.strMeal}}">
-        <mat-card-footer>
-          <button *ngIf="(user$ | async)" mat-icon-button
-          (click)="openSnackBar()"
-          (click)="addFavMeal(recipe)"
+
+
+<mat-grid-list [cols]="breakpoint" gutterSize="5px" rowHeight="250px" (window:resize)="onResize($event)">
+
+  <mat-grid-tile *ngFor='let recipe of recipes' class="cardHolder">
+    <div class="parent" routerLink='/mealbreakdown/{{recipe.idMeal}}'>
+      <div class="text">{{recipe.strMeal}}</div>
+      <img class="center" src="{{recipe.strMealThumb}}/preview" alt="{{recipe.strMeal}}">
+      <div>
+        <button *ngIf="(user$ | async)" mat-icon-button (click)="openSnackBar()" (click)="addFavMeal(recipe)"
           color="accent">
-            <mat-icon>favorite</mat-icon>
-          </button>
-        </mat-card-footer>
-      </mat-card>
-    </mat-grid-tile>
- </mat-grid-list>  
+          <mat-icon>favorite</mat-icon>
+        </button>
+      </div>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
