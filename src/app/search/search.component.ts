@@ -6,7 +6,9 @@ import { RecipeCategoryService } from '../services/recipe-category.service';
 import { Store, select } from '@ngrx/store';
 import { RootState } from '../store';
 import * as Actions from '../store/actions'
+import * as Selectors from '../store/selectors'
 import { MealService } from '../services/meal.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-search',
@@ -18,6 +20,7 @@ export class SearchComponent implements OnInit {
   recipes: Array<Object>;
   categories: Array<Object>;
   value: string;
+  user$: Observable<Object>
 
   constructor(
     private _snackBar: MatSnackBar,
@@ -26,7 +29,8 @@ export class SearchComponent implements OnInit {
     private store: Store<RootState>,
     private mealService: MealService
   ) {
-    
+    this.user$ = store.pipe(select(Selectors.getUserState))
+  this.user$.subscribe(val=> console.log(val));
   }
 
   addFavMeal(recipeToAdd){

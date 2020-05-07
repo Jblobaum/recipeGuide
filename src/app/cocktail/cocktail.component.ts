@@ -6,6 +6,7 @@ import { DrinkCategoryService } from '../services/drink-category.service';
 import { RootState } from '../store';
 import { Store, select } from '@ngrx/store';
 import * as Actions from '../store/actions'
+import * as Selectors from '../store/selectors'
 
 
 
@@ -19,7 +20,7 @@ export class CocktailComponent implements OnInit {
   recipes: Array<Object>;
   categories: Array<string> = []
   value: string = ""
-  
+  user$: Observable<Object>
   recipeBreakdown: Object;
   drink: Object;
   
@@ -31,7 +32,8 @@ export class CocktailComponent implements OnInit {
     private drinkCategoryService: DrinkCategoryService,
     private store: Store<RootState>
   ){
-    
+    this.user$ = store.pipe(select(Selectors.getUserState))
+  this.user$.subscribe(val=> console.log(val));
   }
 
   openSnackBar(){
