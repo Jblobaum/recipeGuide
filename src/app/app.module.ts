@@ -19,6 +19,7 @@ import { reducers } from './store';
 import { IngredientBreakdownComponent } from './ingredient-breakdown/ingredient-breakdown.component';
 import { DrinkIngredientBreakdownComponent } from './drink-ingredient-breakdown/drink-ingredient-breakdown.component';
 import { SafePipe } from './pipes/safe.pipe';
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -36,7 +37,8 @@ import { SafePipe } from './pipes/safe.pipe';
     BreakdownComponent,
     IngredientBreakdownComponent,
     DrinkIngredientBreakdownComponent,
-    SafePipe
+    SafePipe,
+    HomeComponent
     
   ],
   imports: [

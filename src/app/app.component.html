@@ -4,8 +4,7 @@
   <a  mat-button *ngIf="!(user$ | async)" routerLink="/login">Login</a>
   <a  mat-button *ngIf="!(user$ | async)" routerLink="/signup" >Sign Up</a>
   <a  mat-button *ngIf="(user$ | async)"  routerLink="/user/{{user$ | async}}">My Recipes</a>
-  <a  mat-button *ngIf="(user$ | async)" routerLink="/meal">Search For Food</a>
-  <a  mat-button *ngIf="(user$ | async)" routerLink="/cocktail">Search For a Cocktail</a>
+  <a  mat-button routerLink="/home">Search</a>
   <a  mat-button *ngIf="(user$ | async)" (click)="logOut()">Log Out</a>
 
   </mat-toolbar-row>
